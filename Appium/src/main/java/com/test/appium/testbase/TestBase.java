@@ -55,7 +55,7 @@ public class TestBase {
 		DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("deviceName","emulator-5554");
         capabilities.setCapability("platformName","Android");
-        capabilities.setCapability("appPackage", "");
+        capabilities.setCapability("appPackage", "com.ebay.mobile");
         capabilities.setCapability("appActivity", "");
         
         driver = new RemoteWebDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);           
