@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
 
 import com.test.appium.testbase.TestBase;
 
@@ -18,17 +17,32 @@ public class HomePage {
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(id = "userid")
-	WebElement userid;
+	@FindBy(id = "email")
+	WebElement loginEmailAddress;
 	
-	@FindBy(id = "password")
-	WebElement password;
+	@FindBy(id = "passwd")
+	WebElement loginPassword;
 	
-	@FindBy(xpath = "//android.widget.Button[@text='Continue']")
-	WebElement continueButton;
+	@FindBy(id = "signin")
+	WebElement signIn;
+	
+	@FindBy(xpath = "//android.widget.Button[@text='submit']")
+	WebElement submitButton;
 	
 	@FindBy(xpath = "//android.widget.EditText[contains(@text,'possession']")
 	WebElement securityquestion;
+	
+	public void LoginToApplication(String emailAddress, String password) throws InterruptedException {
+		signIn.click();
+		log.info("**********clicking "+signIn.toString()+" object*****");
+		Thread.sleep(1000);
+		loginEmailAddress.sendKeys(emailAddress);
+		Thread.sleep(1000);
+		loginPassword.sendKeys(password);
+		Thread.sleep(1000);
+		submitButton.click();
+		
+	}
 	
 	
 	
